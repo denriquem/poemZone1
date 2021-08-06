@@ -24,11 +24,33 @@ const poems = [
     his solitary track stretched out
     upon the world.`,
 	},
+	{
+		id: "p2",
+		title: "Days",
+		author: "Phillip Larkin",
+		text: `What are days for?
+        Days are where we live.   
+        They come, they wake us   
+        Time and time over.
+        They are to be happy in:   
+        Where can we live but days?
+        
+        Ah, solving that question
+        Brings the priest and the doctor   
+        In their long coats
+        Running over the fields.`,
+	},
 ];
 
 const poemsList = poems.map((poem) => {
 	return (
-		<PoemItem id={poem.id} key={poem.id} title={poem.title} text={poem.text} />
+		<PoemItem
+			id={poem.id}
+			key={poem.id}
+			title={poem.title}
+			text={poem.text}
+			author={poem.author}
+		/>
 	);
 });
 
