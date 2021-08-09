@@ -1,4 +1,4 @@
-import classes from "";
+import classes from "./Modal.module.css";
 import { Fragment } from "react";
 import ReactDom from "react-dom";
 

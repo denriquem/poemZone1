@@ -54,10 +54,12 @@ const poemsList = poems.map((poem) => {
 	);
 });
 
-const Poems = () => {
+const Poems = (props) => {
 	return (
 		<section className={classes.poems}>
-			<button className={classes.buttonPosition}>Add Poem</button>
+			<button className={classes.buttonPosition} onClick={props.onShowAddPoem}>
+				Add Poem
+			</button>
 			<Card>
 				<ul>{poemsList}</ul>
 			</Card>
