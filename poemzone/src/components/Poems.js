@@ -57,6 +57,7 @@ const poemsList = poems.map((poem) => {
 const Poems = () => {
 	return (
 		<section className={classes.poems}>
+			<button className={classes.buttonPosition}>Add Poem</button>
 			<Card>
 				<ul>{poemsList}</ul>
 			</Card>
