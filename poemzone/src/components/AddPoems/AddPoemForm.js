@@ -9,19 +9,15 @@ const AddPoemFrom = (props) => {
 	return (
 		<from onSubmit={confirmHandler}>
 			<div className={classes.control}>
-				<label htmlFor="name">Your Name</label>
-				<input type="text" id="name"></input>
+				<label htmlFor="title">The Title</label>
+				<input type="text" id="title"></input>
 				<div className={classes.control}>
-					<label htmlFor="street">Street</label>
-					<input type="text" id="street"></input>
+					<label htmlFor="author">Author</label>
+					<input type="text" id="author"></input>
 				</div>
 				<div className={classes.control}>
-					<label htmlFor="postal">Postal Code</label>
-					<input type="text" id="postal"></input>
-				</div>
-				<div className={classes.control}>
-					<label htmlFor="city">City</label>
-					<input type="text" id="city"></input>
+					<label htmlFor="poem">Poem</label>
+					<textarea id="poem" name="poem"></textarea>
 				</div>
 				<button type="button" onClick={props.onCancel}>
 					Cancel
