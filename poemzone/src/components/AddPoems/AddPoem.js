@@ -4,23 +4,24 @@ import classes from "./AddPoem.module.css";
 import AddPoemFrom from "./AddPoemForm";
 
 const AddPoem = (props) => {
-	// const [isAddPoem, setAddPoem] = useState(false);
+	const [formData, setFormData] = useState({});
 
 	const saveFormData = (formData) => {
 		const formInput = {
 			...formData,
 		};
+		setFormData(formInput);
+	};
 
-		console.log(formInput);
+	const testFormData = () => {
+		console.log(formData);
+		console.log(`Here it is baby ${formData}`);
 	};
 
 	const modalActions = (
 		<div className={classes.actions}>
 			<button className={classes["button--alt"]} onClick={props.onClose}>
 				Close
-			</button>
-			<button className={classes.button} onClick={saveFormData}>
-				Add
 			</button>
 		</div>
 	);

@@ -19,14 +19,13 @@ const AddPoemFrom = (props) => {
 	};
 
 	const submitHandler = (event) => {
-		event.preventDefault();
-
 		const formData = {
 			title: enteredTitle,
 			author: enteredAuthor,
 			poem: enteredPoem,
 		};
 
+		console.log(formData);
 		props.onSaveFormData(formData);
 	};
 
@@ -50,7 +49,7 @@ const AddPoemFrom = (props) => {
 				<button type="button" onClick={props.onCancel}>
 					Cancel
 				</button>
-				<button type="submit" value="submit">
+				<button type="submit" value="submit" onClick={submitHandler}>
 					Submit
 				</button>
 			</div>
