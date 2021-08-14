@@ -26,7 +26,7 @@ const AddPoemFrom = (props) => {
 		};
 
 		console.log(formData);
-		props.onSaveFormData(formData);
+		props.onConfirm(formData);
 	};
 
 	return (

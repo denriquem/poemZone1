@@ -13,9 +13,14 @@ const AddPoem = (props) => {
 		setFormData(formInput);
 	};
 
-	const testFormData = () => {
-		console.log(formData);
-		console.log(`Here it is baby ${formData}`);
+	const submitPoemHandler = (formData) => {
+		fetch(
+			"https://poemzone-176fa-default-rtdb.europe-west1.firebasedatabase.app/poems.json",
+			{
+				method: "POST",
+				body: JSON.stringify(formData),
+			}
+		);
 	};
 
 	const modalActions = (
@@ -28,7 +33,7 @@ const AddPoem = (props) => {
 
 	return (
 		<Modal onClose={props.onClose}>
-			<AddPoemFrom onCancel={props.onClose} onSaveFormData={saveFormData} />
+			<AddPoemFrom onCancel={props.onClose} onConfirm={submitPoemHandler} />
 			{modalActions}
 		</Modal>
 	);
