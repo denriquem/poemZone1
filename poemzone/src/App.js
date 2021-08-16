@@ -2,6 +2,7 @@ import Header from "./components/Header";
 import Poems from "./components/Poems";
 import AddPoem from "./components/AddPoems/AddPoem";
 import { Fragment, useState } from "react";
+import PoemSummary from "./components/PoemSummary";
 
 function App() {
 	const [addPoemIsShown, setAddPoemIsShown] = useState(false);
@@ -18,8 +19,8 @@ function App() {
 		<Fragment>
 			{addPoemIsShown && <AddPoem onClose={hideAddPoemHander} />}
 			<Header />
+			<PoemSummary />
 			<Poems onShowAddPoem={showAddPoemHandler} />
-			Let's get cracking Vamonos!
 		</Fragment>
 	);
 }

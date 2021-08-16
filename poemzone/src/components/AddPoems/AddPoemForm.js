@@ -46,9 +46,6 @@ const AddPoemFrom = (props) => {
 						onChange={poemChangeHandler}
 					></textarea>
 				</div>
-				<button type="button" onClick={props.onCancel}>
-					Cancel
-				</button>
 				<button
 					className={classes.button1}
 					type="submit"
