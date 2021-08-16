@@ -30,7 +30,7 @@ const AddPoemFrom = (props) => {
 	};
 
 	return (
-		<from onSubmit={submitHandler}>
+		<form onSubmit={submitHandler}>
 			<div className={classes.control}>
 				<label htmlFor="title">The Title</label>
 				<input type="text" id="title" onChange={titleChangeHandler}></input>
@@ -49,11 +49,16 @@ const AddPoemFrom = (props) => {
 				<button type="button" onClick={props.onCancel}>
 					Cancel
 				</button>
-				<button type="submit" value="submit" onClick={submitHandler}>
+				<button
+					className={classes.button1}
+					type="submit"
+					value="submit"
+					onClick={submitHandler}
+				>
 					Submit
 				</button>
 			</div>
-		</from>
+		</form>
 	);
 };
 

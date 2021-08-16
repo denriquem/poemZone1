@@ -4,15 +4,6 @@ import classes from "./AddPoem.module.css";
 import AddPoemFrom from "./AddPoemForm";
 
 const AddPoem = (props) => {
-	const [formData, setFormData] = useState({});
-
-	const saveFormData = (formData) => {
-		const formInput = {
-			...formData,
-		};
-		setFormData(formInput);
-	};
-
 	const submitPoemHandler = (formData) => {
 		fetch(
 			"https://poemzone-176fa-default-rtdb.europe-west1.firebasedatabase.app/poems.json",
