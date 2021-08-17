@@ -1,27 +1,27 @@
-import Header from "./components/Header";
-import Poems from "./components/Poems";
-import AddPoem from "./components/AddPoems/AddPoem";
-import { Fragment, useState } from "react";
-import PoemSummary from "./components/PoemSummary";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+
+import Layout from "./components/Layout/Layout";
+// import UserProfile from "./components/Profile/UserProfile";
+// import AuthPage from "./pages/AuthPage";
+import HomePage from "./pages/HomePage";
 
 function App() {
-	const [addPoemIsShown, setAddPoemIsShown] = useState(false);
-
-	const showAddPoemHandler = () => {
-		setAddPoemIsShown(true);
-	};
-
-	const hideAddPoemHander = () => {
-		setAddPoemIsShown(false);
-	};
-
 	return (
-		<Fragment>
-			{addPoemIsShown && <AddPoem onClose={hideAddPoemHander} />}
-			<Header />
-			<PoemSummary />
-			<Poems onShowAddPoem={showAddPoemHandler} />
-		</Fragment>
+		<Router>
+			<Layout>
+				<Switch>
+					<Route path="/" exact>
+						<HomePage />
+					</Route>
+					{/* <Route path="/auth">
+					<AuthPage />
+				</Route> */}
+					{/* <Route path="/profile">
+					<UserProfile />
+				</Route> */}
+				</Switch>
+			</Layout>
+		</Router>
 	);
 }
 
