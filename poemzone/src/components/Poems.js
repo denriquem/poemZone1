@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import classes from "./Poems.module.css";
 import Card from "./UI/Card";
 import PoemItem from "./PoemItem";
-import PoemSummary from "./PoemSummary";
 
 const Poems = (props) => {
 	console.log("hello");
