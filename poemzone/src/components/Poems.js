@@ -27,7 +27,7 @@ const Poems = (props) => {
 					id: key,
 					title: responseData[key].title,
 					author: responseData[key].author,
-					text: responseData[key].text,
+					text: responseData[key].poem,
 				});
 			}
 			setPoems(loadedPoems);
