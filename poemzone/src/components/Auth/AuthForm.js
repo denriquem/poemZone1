@@ -2,10 +2,16 @@ import { useState, useRef } from "react";
 import classes from "./AuthForm.module.css";
 import axios from "axios";
 
+require("dotenv").config();
+
+const { REACT_APP_FBASE } = process.env;
+
 const AuthForm = () => {
 	const emailInputRef = useRef();
 	const passwordInputRef = useRef();
 	const [isLogin, setIsLogin] = useState(true);
+
+	const [isLoading, setLoading] = useState(false);
 
 	const switchAuthModeHandler = () => {
 		setIsLogin((prevState) => !prevState);
@@ -18,12 +24,12 @@ const AuthForm = () => {
 		const enteredPassword = passwordInputRef.current.value;
 
 		// validation
-
+		setLoading(true);
 		if (isLogin) {
 		} else {
 			axios
 				.post(
-					"https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyBGmZofN-WL8oiBzIhfiKXqV3B_786BXPs",
+					`https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${REACT_APP_FBASE}`,
 					{
 						email: enteredEmail,
 						password: enteredPassword,
@@ -31,10 +37,11 @@ const AuthForm = () => {
 					}
 				)
 				.then((response) => {
+					setLoading(false);
 					console.log(response);
 				})
 				.catch((error) => {
-					console.log(error);
+					alert(error.message);
 				});
 		}
 	};
@@ -57,7 +64,10 @@ const AuthForm = () => {
 					/>
 				</div>
 				<div className={classes.actions}>
-					<button>{isLogin ? "Login" : "Create Account"}</button>
+					{!isLoading && (
+						<button>{isLogin ? "Login" : "Create Account"}</button>
+					)}
+					{isLoading && <p>Loading...</p>}
 					<button
 						type="button"
 						className={classes.toggle}
