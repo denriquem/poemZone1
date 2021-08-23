@@ -1,6 +1,7 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useContext } from "react";
 import classes from "./AuthForm.module.css";
 import axios from "axios";
+import AuthContext from "../../store/auth-context";
 
 require("dotenv").config();
 
@@ -10,6 +11,8 @@ const AuthForm = () => {
 	const emailInputRef = useRef();
 	const passwordInputRef = useRef();
 	const [isLogin, setIsLogin] = useState(true);
+
+	const authCtx = useContext(AuthContext);
 
 	const [isLoading, setLoading] = useState(false);
 
@@ -50,7 +53,7 @@ const AuthForm = () => {
 				}
 			})
 			.then((data) => {
-				console.log(data);
+				authCtx.login(data.data.idToken);
 			})
 			.catch((error) => {
 				alert(error.message);
