@@ -1,10 +1,12 @@
 import { useRef, useContext } from "react";
+import { useHistory } from "react-router-dom";
 import classes from "./ProfileForm.module.css";
 import AuthContext from "../../store/auth-context";
 
 require("dotenv").config();
 
 const ProfileForm = () => {
+	const history = useHistory();
 	const { REACT_APP_FBASE } = process.env;
 
 	const newPasswordInputRef = useRef();
@@ -31,6 +33,7 @@ const ProfileForm = () => {
 			}
 		).then((res) => {
 			// assumes alway succeeds
+			history.replace("/");
 		});
 	};
 

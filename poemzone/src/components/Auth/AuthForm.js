@@ -1,4 +1,5 @@
 import { useState, useRef, useContext } from "react";
+import { useHistory } from "react-router-dom";
 import classes from "./AuthForm.module.css";
 import axios from "axios";
 import AuthContext from "../../store/auth-context";
@@ -8,6 +9,7 @@ require("dotenv").config();
 const { REACT_APP_FBASE } = process.env;
 
 const AuthForm = () => {
+	const history = useHistory();
 	const emailInputRef = useRef();
 	const passwordInputRef = useRef();
 	const [isLogin, setIsLogin] = useState(true);
@@ -54,6 +56,7 @@ const AuthForm = () => {
 			})
 			.then((data) => {
 				authCtx.login(data.data.idToken);
+				history.replace("/");
 			})
 			.catch((error) => {
 				alert(error.message);
