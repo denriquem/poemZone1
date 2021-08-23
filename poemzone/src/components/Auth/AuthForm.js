@@ -25,25 +25,36 @@ const AuthForm = () => {
 
 		// validation
 		setLoading(true);
+		let url;
 		if (isLogin) {
+			url = `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${REACT_APP_FBASE}`;
 		} else {
-			axios
-				.post(
-					`https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${REACT_APP_FBASE}`,
-					{
-						email: enteredEmail,
-						password: enteredPassword,
-						returnSecureToken: true,
-					}
-				)
-				.then((response) => {
-					setLoading(false);
-					console.log(response);
-				})
-				.catch((error) => {
-					alert(error.message);
-				});
+			url = `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${REACT_APP_FBASE}`;
 		}
+		axios
+			.post(url, {
+				email: enteredEmail,
+				password: enteredPassword,
+				returnSecureToken: true,
+			})
+			.then((response) => {
+				console.log(response.data);
+				setLoading(false);
+				if (response.status === 200) {
+					console.log(response);
+					return response;
+				} else {
+					let errorMessage = "Authentication Failed";
+					alert(errorMessage);
+					throw new Error("Authentication Failed");
+				}
+			})
+			.then((data) => {
+				console.log(data);
+			})
+			.catch((error) => {
+				alert(error.message);
+			});
 	};
 
 	return (
