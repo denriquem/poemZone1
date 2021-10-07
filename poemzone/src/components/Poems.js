@@ -13,6 +13,8 @@ const Poems = (props) => {
 				"https://poemzone-176fa-default-rtdb.europe-west1.firebasedatabase.app/poems.json"
 			).then();
 
+			console.log(response);
+
 			if (!response.ok) {
 				throw new Error("Something went wrong");
 			}
