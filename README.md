@@ -8,7 +8,7 @@ Online poetry zine for the 21st Centurary even though it's been the 21st centura
 
 - Clone this repository with `git clone https://github.com/denriquem/poemZone1.git`
 - Change into the poemZone folder with `cd poemZone`
-- Install the dependencies with npm install
+- Install the dependencies with `npm install`
 
 ## How to run the app
 
